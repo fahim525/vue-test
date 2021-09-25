@@ -3,3 +3,35 @@
 @tailwind components;
 
 @tailwind utilities;
+
+@import 'https://pro.fontawesome.com/releases/v5.15.1/css/all.css';
+.result-list:hover{
+    @apply ring ring-indigo-300 ring-opacity-50;
+}
+
+/* Fade transition used for dialog */
+.fade-enter-active {
+    animation: topInAnimation 0.2s ease-in-out;
+}
+
+.fade-leave-active {
+    animation: topOutAnimation 0.2s ease-in-out;
+}
+
+@keyframes topInAnimation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes topOutAnimation {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
