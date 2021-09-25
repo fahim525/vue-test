@@ -24,10 +24,10 @@
         </div>
 
         <div class="px-2 py-3">
-            <Select placeholder="Religion" />
-            <Select placeholder="Country" />
-            <Select placeholder="Ethnicity" />
-            <Select placeholder="Martial Status" />
+            <Select placeholder="Religion" :items="items" />
+            <Select placeholder="Country" :items="items" />
+            <Select placeholder="Ethnicity" :items="items" />
+            <Select placeholder="Martial Status" :items="items" />
 
             <h3 class="my-3 text-sm text-indigo-400 text-center mb-3 font-semibold">Tags</h3>
 
@@ -53,6 +53,13 @@ export default {
     components: {
         Tag,
         Select
+    },
+    data() {
+        return {
+            items: [
+                'Option one', 'Option two'
+            ]
+        }
     }
 }
 </script>

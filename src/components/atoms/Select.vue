@@ -12,35 +12,44 @@
             name="fade"
         >
             <ul v-if="isShow" class="absolute z-10  w-full bg-white shadow-lg max-h-60 rounded-md text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm" tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-3">
-                <div
-                    @click="isShow = false"
-                    class="fixed inset-0 transition-opacity"
-                    aria-hidden="true"
-                >
-                    <div class="absolute inset-0"></div>
-                </div>
-                <li @click="selected = 'Option 1'" class="text-gray-900 cursor-default select-none relative py-2 hover:bg-gray-100 px-4" id="listbox-option-0" role="option">
-                    <span class="font-normal block truncate">  Option 1 </span>
-                </li>
-                <li @click="selected = 'Option 2'" class="text-gray-900 cursor-default select-none relative py-2 hover:bg-gray-100 px-4" id="listbox-option-0" role="option">
-                    <span class="font-normal block truncate"> Option 2  </span>
-                </li>
+                <ClickAway @clickAway="isShow = false" />
+                <SelectOption
+                    v-for="(item, index) in items"
+                    :key="index"
+                    @chooseOne="chooseOne"
+                    :option="item"
+                />
             </ul>
         </transition>
     </div>
 </template>
 
 <script>
+import SelectOption from '@/components/atoms/SelectOption';
+import ClickAway from '@/components/atoms/ClickAway'
 export default {
     props: {
         placeholder: {
             type: String
+        },
+        items: {
+            type: Array
         }
+    },
+    components: {
+        ClickAway,
+        SelectOption
     },
     data() {
         return {
             isShow: false,
             selected: null
+        }
+    },
+    methods: {
+        chooseOne(value) {
+            this.selected = value;
+            this.isShow = false
         }
     }
 }

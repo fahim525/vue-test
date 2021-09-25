@@ -15,24 +15,28 @@
                 </button>
             </div>
         </div>
-        
-        <div class="relative">
-            <ul v-if="isShow" class="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md  text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm">
-                <li @click="selected.push('Tag 1')" class="text-gray-900 cursor-default select-none relative py-2 hover:bg-gray-100 px-4" id="listbox-option-0" role="option">
-                    <span class="font-normal block truncate">  Tag 1 </span>
-                </li>
-                <li @click="selected.push('Tag 2')" class="text-gray-900 cursor-default select-none relative py-2 hover:bg-gray-100 px-4" id="listbox-option-0" role="option">
-                    <span class="font-normal block truncate">  Tag 2 </span>
-                </li>
-                <li @click="selected.push('Tag 3')" class="text-gray-900 cursor-default select-none relative py-2 hover:bg-gray-100 px-4" id="listbox-option-0" role="option">
-                    <span class="font-normal block truncate">  Tag 3 </span>
-                </li>
-            </ul>
-        </div>
+        <transition name="fade">
+            <div v-if="isShow" class="relative">
+                <ClickAway @clickAway="isShow = false" />
+
+                <ul class="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md  text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm">
+                    <li @click="selected.push('Tag 1')" class="text-gray-900 cursor-default select-none relative py-2 hover:bg-gray-100 px-4" id="listbox-option-0" role="option">
+                        <span class="font-normal block truncate">  Tag 1 </span>
+                    </li>
+                    <li @click="selected.push('Tag 2')" class="text-gray-900 cursor-default select-none relative py-2 hover:bg-gray-100 px-4" id="listbox-option-0" role="option">
+                        <span class="font-normal block truncate">  Tag 2 </span>
+                    </li>
+                    <li @click="selected.push('Tag 3')" class="text-gray-900 cursor-default select-none relative py-2 hover:bg-gray-100 px-4" id="listbox-option-0" role="option">
+                        <span class="font-normal block truncate">  Tag 3 </span>
+                    </li>
+                </ul>
+            </div>
+        </transition>
     </div>
 </template>
 
 <script>
+import ClickAway from '@/components/atoms/ClickAway'
 export default {
     data() {
         return {
@@ -42,10 +46,9 @@ export default {
                 'ite', 'item 2', ' 3', 'it', 'item 5', 'another ',
             ]
         }
+    },
+    components: {
+        ClickAway
     }
 }
 </script>
-
-<style>
-
-</style>
