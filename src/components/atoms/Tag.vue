@@ -18,17 +18,13 @@
         <transition name="fade">
             <div v-if="isShow" class="relative">
                 <ClickAway @clickAway="isShow = false" />
-
                 <ul class="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md  text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm">
-                    <li @click="selected.push('Tag 1')" class="text-gray-900 cursor-default select-none relative py-2 hover:bg-gray-100 px-4" id="listbox-option-0" role="option">
-                        <span class="font-normal block truncate">  Tag 1 </span>
-                    </li>
-                    <li @click="selected.push('Tag 2')" class="text-gray-900 cursor-default select-none relative py-2 hover:bg-gray-100 px-4" id="listbox-option-0" role="option">
-                        <span class="font-normal block truncate">  Tag 2 </span>
-                    </li>
-                    <li @click="selected.push('Tag 3')" class="text-gray-900 cursor-default select-none relative py-2 hover:bg-gray-100 px-4" id="listbox-option-0" role="option">
-                        <span class="font-normal block truncate">  Tag 3 </span>
-                    </li>
+                    <SelectOption
+                        v-for="(item, index) in tags"
+                        :key="index"
+                        @chooseOne="chooseOne"
+                        :option="item"
+                />
                 </ul>
             </div>
         </transition>
@@ -36,19 +32,33 @@
 </template>
 
 <script>
-import ClickAway from '@/components/atoms/ClickAway'
+import ClickAway from '@/components/atoms/ClickAway';
+import SelectOption from '@/components/atoms/SelectOption';
+
 export default {
     data() {
         return {
             isShow: false,
             selected: [
-                'item 1', 'item 2', 'item 3', 'ite', 'item 5',
-                'ite', 'item 2', ' 3', 'it', 'item 5', 'another ',
+                'Non smoker'
             ]
         }
     },
+    props: {
+        tags: {
+            type: Array,
+            require: true
+        }
+    },
     components: {
+        SelectOption,
         ClickAway
+    },
+    methods: {
+        chooseOne(value) {
+            this.selected.push(value);
+            this.isShow = false;
+        }
     }
 }
 </script>

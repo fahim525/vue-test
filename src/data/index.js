@@ -18,6 +18,16 @@ export const records = [
         id: 4,
         name: 'Jushwa Salluch',
         location: 'New work, USA'
+    },
+    {
+        id: 5,
+        name: 'Deckon alex',
+        location: 'Dallas, USA'
+    },
+    {
+        id: 6,
+        name: 'Erik owlson',
+        location: 'London, UK'
     }
 ];
 

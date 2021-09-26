@@ -25,7 +25,7 @@
 
             <h3 class="my-3 text-sm text-indigo-400 text-center mb-3 font-semibold">Tags</h3>
 
-            <Tag />
+            <Tag :tags="tags" />
         </div>
 
         <div class="px-2 py-3 text-center">
@@ -55,7 +55,8 @@ export default {
         return {
             items: [
                 'Option one', 'Option two'
-            ]
+            ],
+            tags: ['Non smoker', 'Smoker', 'Male', 'Female', 'London', 'Islam', 'Muslim', 'Another']
         }
     }
 }
