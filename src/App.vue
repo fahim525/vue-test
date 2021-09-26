@@ -53,7 +53,7 @@
                         <div class="flex-auto flex items-center space-x-2 justify-end">
                            <div class="flex items-center gap-1 flex-wrap">
                                 <template v-for="(item, index) in filterOptions">
-                                    <Chip :label="item.label" :key="index" />
+                                    <Chip @click.native="tagName = item" :label="item.label" :key="index" />
                                 </template>
                                 <button class="border-b border-red-700 text-red-700 text-xs">See More ..</button>
                             </div>
@@ -61,11 +61,13 @@
                     </div>
                     <transition name="fade" mode="out-in">
                         <components
+                            v-if="records.length"
                             @onClick:block="isShowBlockItem = true"
                             @onClick:profile="isShowProfile = true"
                             :is="componentName"
                             :records="records"
                         />
+                        <p v-else class="text-center mt-10 text-red-400">Ops! Record not available </p>
                     </transition>
                 </div>
             </div>
@@ -101,6 +103,7 @@ import ConfirmDialog from '@/components/atoms/ConfirmDialog';
 import Profile from '@/components/molecules/Profile';
 
 import { records, filterOptions } from '@/data';
+import { filterByTag } from "@/services";
 export default {
     components: {
         Chip,
@@ -113,15 +116,23 @@ export default {
     data() {
       return {
         filterOptions,
-        records,
         componentName: 'ListItem',
         isShowBlockItem: false,
         isShowProfile: false,
         record: {
             name: 'User name here',
             location: 'User location Dhaka '
-        }
+        },
+        tagName: null
       }
+    },
+    computed: {
+        records() {
+            if(!this.tagName) {
+                return records;
+            }
+            return filterByTag(records, this.tagName)
+        }
     }
 }
 </script>

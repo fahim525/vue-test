@@ -2,22 +2,22 @@ export const records = [
     {
         id: 1,
         name: 'Justin Webb',
-        location: 'London, UK, 27 Yrs, Island'
+        location: 'London, UK, 27 Yrs, Male'
     },
     {
         id: 2,
         name: 'John sebastian',
-        location: 'London, UK, 27 Yrs, Island'
+        location: 'London, UK, 27 yrs, Island'
     },
     {
         id: 3,
         name: 'John smith',
-        location: 'London, UK, 27 Yrs, Island'
+        location: 'London, UK, 27 Yrs, Male'
     },
     {
         id: 4,
         name: 'Jushwa Salluch',
-        location: 'New work, USA'
+        location: 'pakistani, USA, Islam'
     },
     {
         id: 5,
@@ -27,7 +27,7 @@ export const records = [
     {
         id: 6,
         name: 'Erik owlson',
-        location: 'London, UK'
+        location: 'Pakistani, Islam'
     }
 ];
 

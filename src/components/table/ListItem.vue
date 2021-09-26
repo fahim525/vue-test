@@ -30,6 +30,7 @@
 <script>
 import Button from '@/components/atoms/Button'
 export default {
+    name: 'ListItem',
     props: {
         records: {
             type: Array,
