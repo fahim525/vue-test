@@ -14,11 +14,11 @@
                         <Button class="bg-indigo-custom" label="Shortlist" icon-class="fas fa-star" />
                         <Button class="bg-indigo-custom" label="Team list" icon-class="fas fa-users" />
                         <Button class="bg-indigo-custom" label="Connect" icon-class="fal fa-people-arrows" />
-                        <Button class="bg-red-500" label="Block" icon-class="fas fa-ban" />
+                        <Button @click.native="$emit('onClick:block')" class="bg-red-500" label="Block" icon-class="fas fa-ban" />
                     </div>
                 </div>
                 <div class="flex-shrink">
-                    <button class="flex items-center h-full bg-indigo-custom text-center text-xs text-white px-5 rounded-r">
+                    <button type="button" @click="$emit('onClick:profile', record)" class="flex items-center h-full bg-indigo-custom text-center text-xs text-white px-5 rounded-r">
                         View profile
                     </button>
                 </div>

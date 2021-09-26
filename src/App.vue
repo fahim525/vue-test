@@ -60,32 +60,67 @@
                         </div>
                     </div>
                     <transition name="fade" mode="out-in">
-                        <components :is="componentName" :records="records" />
+                        <components
+                            @onClick:block="isShowBlockItem = true"
+                            @onClick:profile="isShowProfile = true"
+                            :is="componentName"
+                            :records="records"
+                        />
                     </transition>
                 </div>
             </div>
         </div>
+        <ConfirmDialog
+            v-model="isShowBlockItem"
+            message="Are you sure you want to block this user?"
+            description="We don't inform this user about blocking."
+            truthyButtonText="Yes, I want to block"
+            falsyButtonText="No, Keep alive"
+        >
+            <template #icon>
+                <div class="bg-red-100 rounded-full h-8 w-8 flex items-center justify-center p-1">
+                    <i
+                        class="far fa-exclamation-circle  text-red-900"
+                        aria-hidden="true"
+                    />
+                </div>
+            </template>
+        </ConfirmDialog>
+        <Profile :record=record v-model="isShowProfile">
+            hi profile
+        </Profile>
     </div>
 </template>
 
 <script>
 import SideBar from '@/components/SideBar';
 import ListItem from '@/components/table/ListItem';
-import GridItem from '@/components/table/GridItem'
-import Chip from '@/components/atoms/Chip'
-import { records, filterOptions } from '@/data'
+import GridItem from '@/components/table/GridItem';
+import Chip from '@/components/atoms/Chip';
+import ConfirmDialog from '@/components/atoms/ConfirmDialog';
+import Profile from '@/components/molecules/Profile';
+
+import { records, filterOptions } from '@/data';
 export default {
     components: {
         Chip,
         SideBar,
+        Profile,
         ListItem,
-        GridItem
+        GridItem,
+        ConfirmDialog
     },
     data() {
       return {
         filterOptions,
         records,
-        componentName: 'ListItem'
+        componentName: 'ListItem',
+        isShowBlockItem: false,
+        isShowProfile: false,
+        record: {
+            name: 'User name here',
+            location: 'User location Dhaka '
+        }
       }
     }
 }

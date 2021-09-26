@@ -13,14 +13,8 @@
             </p>
         </div>
         <div class="px-2 py-3 border-b border-gray-200 flex items-center justify-center flex-wrap">
-             <button class="flex-shrink flex items-center text-xs px-2 py-1 capitalize rounded-full border-2 border-gray-200 bg-indigo-custom text-white">
-                <i class="far fa-search-plus mr-1 text-xs"></i>
-                Save Search
-            </button>
-            <button class="flex-shrink flex items-center text-xs px-2 py-1 capitalize rounded-full border-2 border-gray-200 bg-indigo-custom text-white">
-                <i class="far fa-undo mr-1 text-xs"></i>
-                Load Save Search
-            </button>
+            <Button class="bg-indigo-custom" label="Save Search" icon-class="far fa-search-plus" />
+            <Button class="bg-indigo-custom" label="Load Save Search" icon-class="far fa-undo" />
         </div>
 
         <div class="px-2 py-3">
@@ -47,12 +41,15 @@
 </template>
 <script>
 import Select from '@/components/atoms/Select';
-import Tag from '@/components/atoms/Tag'
+import Tag from '@/components/atoms/Tag';
+import Button from '@/components/atoms/Button'
+
 export default {
   
     components: {
         Tag,
-        Select
+        Select,
+        Button,
     },
     data() {
         return {

@@ -13,7 +13,7 @@
                         <p class="text-xs text-gray-400">{{ record.location }}</p>
                     </div>
                     <div class="flex justify-center mt-4">
-                        <button class="flex items-center p-1 bg-indigo-custom text-center  text-white px-5 rounded-md">
+                        <button @click="$emit('onClick:profile', record)" class="flex items-center p-1 bg-indigo-custom text-center  text-white px-5 rounded-md">
                             View profile
                         </button>
                     </div>
@@ -22,7 +22,7 @@
                 <div class="flex justify-center flex-wrap h-full gap-1">
                     <Button class="bg-indigo-custom" label="Shortlist" icon-class="fas fa-star" />
                     <Button class="bg-indigo-custom" label="Team list" icon-class="fas fa-users" />
-                    <Button class="bg-red-500" label="Block" icon-class="fas fa-ban" />
+                    <Button @click.native="$emit('onClick:block')" class="bg-red-500" label="Block" icon-class="fas fa-ban" />
                 </div>
             </div>
         </div>
