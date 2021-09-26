@@ -6,7 +6,7 @@
 
 @import 'https://pro.fontawesome.com/releases/v5.15.1/css/all.css';
 .result-list:hover{
-    @apply ring ring-indigo-300 ring-opacity-50;
+    @apply ring ring-indigo-300 ring-opacity-50 transition;
 }
 
 .calculate_to{

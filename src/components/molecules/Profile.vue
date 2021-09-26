@@ -1,5 +1,5 @@
 <template>
-    <Dialog v-model="localModel" persistent>
+    <Dialog v-model="localModel">
         <div class=" flex flex-col content-center bg-white p-2 rounded m-2">
             <div class="flex justify-between -mt-2">
                 <h4>Profile</h4>

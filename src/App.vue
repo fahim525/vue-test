@@ -6,33 +6,8 @@
                     <SideBar />
                 </div>
                 <div class="flex-auto w-3/4 py-3">
-                    <h1 class="text-gray-400 text-3xl mb-3 font-bold">
-                        Search Results
-                    </h1>
-                    <div class="flex items-center space-x-2 mb-3">
-                        <div class="flex-auto">
-                            <p class="text-xs text-gray-500">
-                                Matches for your requirements: 25 results
-                            </p>
-                        </div>
-                        <div class="flex-shrink flex items-center space-x-2 justify-end">
-                            <button class="bg-indigo-custom rounded-full p-1 text-white text-xs">
-                                <span class="w-full border border-white leading-5 rounded-full px-3 flex items-center">
-                                    Manage Filter
-                                    <i class="fal fa-bars ml-2"></i>
-                                </span>
-                            </button>
-                            <button class="bg-indigo-custom rounded-full p-1 text-white text-xs">
-                                <span class="w-full border border-white leading-5 rounded-full px-3 flex items-center">
-                                    Advance Search
-                                    <i class="far fa-search ml-2"></i>
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-
+                    <Header />
                      <div class="flex items-center space-x-2 mb-3">
-
                         <div class="flex-shrink flex items-center space-x-1">
                             <button
                                 @click="componentName = 'GridItem'"
@@ -63,7 +38,7 @@
                         <components
                             v-if="records.length"
                             @onClick:block="isShowBlockItem = true"
-                            @onClick:profile="isShowProfile = true"
+                            @onClick:profile="showProfile"
                             :is="componentName"
                             :records="records"
                         />
@@ -82,10 +57,7 @@
         >
             <template #icon>
                 <div class="bg-red-100 rounded-full h-8 w-8 flex items-center justify-center p-1">
-                    <i
-                        class="far fa-exclamation-circle  text-red-900"
-                        aria-hidden="true"
-                    />
+                    <i class="far fa-exclamation-circle  text-red-900" aria-hidden="true" />
                 </div>
             </template>
         </ConfirmDialog>
@@ -100,14 +72,16 @@ import GridItem from '@/components/table/GridItem';
 import Chip from '@/components/atoms/Chip';
 import ConfirmDialog from '@/components/atoms/ConfirmDialog';
 import Profile from '@/components/molecules/Profile';
-
+import Header from '@/components/molecules/Header'
 import { records, filterOptions } from '@/data';
 import { filterByTag } from "@/services";
 export default {
+    name: 'App',
     components: {
         Chip,
         SideBar,
         Profile,
+        Header,
         ListItem,
         GridItem,
         ConfirmDialog
@@ -135,8 +109,11 @@ export default {
     },
     methods: {
         blockUser() {
-            alert('You confirm to block');
             this.isShowBlockItem = false;
+        },
+        showProfile(record) {
+            this.isShowProfile = true;
+            this.record = record;
         }
     }
 }
