@@ -26,7 +26,7 @@
                 @onIncrease="increase"
                 @onDecrease="decrease"
             />
-            <div class="text-center text-indigo-custom">
+            <div class="text-center text-indigo-custom text-sm">
                 <strong>{{ min }} - {{ max }}</strong> Years old
             </div>
         </div>

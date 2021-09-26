@@ -56,8 +56,8 @@
             @confirm="blockUser"
         >
             <template #icon>
-                <div class="bg-red-100 rounded-full h-8 w-8 flex items-center justify-center p-1">
-                    <i class="far fa-exclamation-circle  text-red-900" aria-hidden="true" />
+                <div class="bg-red-200 rounded-full h-8 w-8 flex items-center justify-center p-1">
+                    <i class="far fa-exclamation-circle  text-red-500" aria-hidden="true" />
                 </div>
             </template>
         </ConfirmDialog>
