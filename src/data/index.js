@@ -28,6 +28,21 @@ export const records = [
         id: 6,
         name: 'Erik owlson',
         location: 'Pakistani, Islam'
+    },
+    {
+        id: 7,
+        name: 'Adword jekson',
+        location: 'London, Islam'
+    },
+    {
+        id: 8,
+        name: 'Jossef malve',
+        location: 'Pakistani, Islam'
+    },
+    {
+        id: 9,
+        name: 'Mark anthony',
+        location: 'London, Islam'
     }
 ];
 

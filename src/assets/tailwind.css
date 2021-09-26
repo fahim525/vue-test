@@ -9,9 +9,23 @@
     @apply ring ring-indigo-300 ring-opacity-50;
 }
 
+.calculate_to{
+    @apply relative bg-white;
+}
+
+
 /* Fade transition used for dialog */
 .fade-enter-active {
     animation: topInAnimation 0.2s ease-in-out;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
 }
 
 .fade-leave-active {

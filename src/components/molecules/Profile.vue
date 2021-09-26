@@ -41,7 +41,7 @@ export default {
             type: Object,
             require: true
         },
-        value: Button
+        value: Boolean
     },
     computed: {
       localModel: {

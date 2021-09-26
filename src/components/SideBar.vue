@@ -16,7 +16,7 @@
             <Button class="bg-indigo-custom" label="Save Search" icon-class="far fa-search-plus" />
             <Button class="bg-indigo-custom" label="Load Save Search" icon-class="far fa-undo" />
         </div>
-        <div class="px-2">
+        <div class="px-2 py-3 border-b border-gray-200">
             <Range
                 label="Age"
                 :min="+min"
@@ -29,6 +29,9 @@
             <div class="text-center text-indigo-custom">
                 <strong>{{ min }} - {{ max }}</strong> Years old
             </div>
+        </div>
+        <div>
+            <Number />
         </div>
         <div class="px-2 py-3">
             <Select placeholder="Religion" :items="items" />
@@ -57,6 +60,7 @@ import Select from '@/components/atoms/Select';
 import Tag from '@/components/atoms/Tag';
 import Button from '@/components/atoms/Button';
 import Range from '@/components/atoms/Range'
+import Number from '@/components/atoms/Number'
 
 export default {
   
@@ -64,12 +68,13 @@ export default {
         Tag,
         Range,
         Select,
+        Number,
         Button,
     },
     data() {
         return {
-            min: 12,
-            max: 22,
+            min: 27,
+            max: 40,
             items: [
                 'Option one', 'Option two'
             ],
@@ -78,10 +83,10 @@ export default {
     },
     methods: {
         increase() {
-            this.max = this.max + 5;
+            this.max = +this.max + 5;
         },
         decrease() {
-            this.min = this.min - 5;
+            this.min = +this.min - 5;
         },
         
     }

@@ -1,8 +1,6 @@
 <template>
-<div class="content flex">
-  <div>
-      {{ label }}
-  </div>
+<div class="content flex items-center">
+  <span class="text-xs text-gray-500">{{ label }}</span>
   <div id="my-slider" :se-min="minThreshold" :se-step="step" :se-min-value="min" :se-max-value="max" :se-max="maxThreshold" class="slider">
     <div class="slider-touch-left">
       <span></span>
@@ -11,13 +9,13 @@
       <span></span>
     </div>
     <div class="slider-line">
-      <span class="bg-indigo-custom opacity-50"></span>
+      <span class="bg-indigo-custom-100"></span>
     </div>
-    <div @click="$emit('onIncrease', max)" class="absolute right-4 bg-indigo-custom rounded-full w-5 h-5 flex justify-center items-center cursor-pointer" style="top: 6px">
-        <i class="far fa-plus-circle text-white"></i>
+    <div @click="$emit('onIncrease', max)" class="absolute right-4 bg-indigo-custom-100 rounded-full w-5 h-5 flex justify-center items-center cursor-pointer" style="top: 6px">
+        <i class="far fa-plus text-white"></i>
     </div>
-    <div @click="$emit('onDecrease', min)" class="absolute left-4 bg-indigo-custom rounded-full w-5 h-5 flex justify-center items-center cursor-pointer" style="top: 6px">
-        <i class="far fa-minus-circle text-white"></i>
+    <div @click="$emit('onDecrease', min)" class="absolute left-4 bg-indigo-custom-100 rounded-full w-5 h-5 flex justify-center items-center cursor-pointer" style="top: 6px">
+        <i class="far fa-minus text-white"></i>
     </div>
   </div>
 </div>
@@ -30,7 +28,7 @@ export default {
   props: {
     minThreshold: {
       type: Number,
-      default: -100
+      default: 0
     },
     maxThreshold: {
       type: Number,

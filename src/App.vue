@@ -78,6 +78,7 @@
             description="We don't inform this user about blocking."
             truthyButtonText="Yes, I want to block"
             falsyButtonText="No, Keep alive"
+            @confirm="blockUser"
         >
             <template #icon>
                 <div class="bg-red-100 rounded-full h-8 w-8 flex items-center justify-center p-1">
@@ -88,9 +89,7 @@
                 </div>
             </template>
         </ConfirmDialog>
-        <Profile :record=record v-model="isShowProfile">
-            hi profile
-        </Profile>
+        <Profile :record=record v-model="isShowProfile" />
     </div>
 </template>
 
@@ -132,6 +131,12 @@ export default {
                 return records;
             }
             return filterByTag(records, this.tagName)
+        }
+    },
+    methods: {
+        blockUser() {
+            alert('You confirm to block');
+            this.isShowBlockItem = false;
         }
     }
 }
