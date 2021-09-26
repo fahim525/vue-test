@@ -166,7 +166,7 @@ export default function (id) {
     }
   }
 
-  function onStop (event) {
+  function onStop () {
     document.removeEventListener('mousemove', onMove)
     document.removeEventListener('mouseup', onStop)
     document.removeEventListener('touchmove', onMove)

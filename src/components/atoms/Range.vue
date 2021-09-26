@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import ZbRangeSlider from './ZbRangeSlider'
+import ZbRangeSlider from '@/services/ZbRangeSlider'
 
 export default {
   props: {
